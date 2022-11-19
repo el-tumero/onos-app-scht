@@ -34,6 +34,9 @@ links = [
 ]
 
 def calculateDistance(city1:str, city2:str) -> float:
+    """
+    source https://stackoverflow.com/a/19412565
+    """
 
     coords1 = locations[city1]
     coords2 = locations[city2]

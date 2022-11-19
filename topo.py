@@ -15,8 +15,12 @@ locations = {
     "cordoba": (37.88519, -4.77600)
 }
 
-def calculateDistance(city1:str, city2:str) -> float:
 
+def calculateDistance(city1:str, city2:str) -> float:
+    """
+    source https://stackoverflow.com/a/19412565
+    """
+    
     coords1 = locations[city1]
     coords2 = locations[city2]
 

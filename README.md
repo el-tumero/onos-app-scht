@@ -274,3 +274,6 @@ def saveLinksDelay():
 
 - saveLinksDelay() - pobiera informacje o tym które switche są podłączone do których hostów, wylicza opóźnienie dla kazdego łącza wynikającego z prędkości propagacji przewodu światłowodowego. Zapisuje informacje o opóźnieniach dla kazdego łącza w pliku links.json()
 
+## Autorzy
+Łukasz Tumiński, Alicja Turzyńska
+
