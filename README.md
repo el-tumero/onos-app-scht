@@ -59,7 +59,7 @@ linksLoad = {}
 def flowsAdd():
     data = request.json
 
-    nodes = find_path(graph, switches[data["ip1"]], switches[data["ip2"]]).nodes
+    nodes = find_path(graph, switches[data["ip1"] + "/32"], switches[data["ip2"] + "/32"]).nodes
 
     unavailableFlows:list[str] = []
 
@@ -83,7 +83,7 @@ def flowsAdd():
             args = (flow[0:19], flow[19:])
             altGraph.remove_edge(*args)
         
-        nodes = find_path(altGraph, switches[data["ip1"]], switches[data["ip2"]]).nodes
+        nodes = find_path(altGraph, switches[data["ip1"] + "/32"], switches[data["ip2"]] + "/32").nodes
 
         for i in range(len(nodes) - 1):
             linksLoad[nodes[i]+nodes[i+1]] = linksLoad[nodes[i]+nodes[i+1]] + data["load"] if nodes[i]+nodes[i+1] in linksLoad else data["load"]

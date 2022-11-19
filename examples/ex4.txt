@@ -1,0 +1,32 @@
+1)
+madrid-malaga
+curl -X POST "http://localhost:8000/flows/add" -d '{"ip1": "10.0.0.4", "ip2": "10.0.0.5", "load": 55}' -H "Content-Type: application/json" -H "Accept: application/json"
+out: Added! ('of:0000000000000001', 'of:0000000000000008')
+
+madrid-cordoba
+curl -X POST "http://localhost:8000/flows/add" -d '{"ip1": "10.0.0.4", "ip2": "10.0.0.3", "load": 55}' -H "Content-Type: application/json" -H "Accept: application/json"
+out: Added! ('of:0000000000000001', 'of:0000000000000009', 'of:000000000000000a')
+
+
+2)
+madrid-malaga
+curl -X POST "http://localhost:8000/flows/add" -d '{"ip1": "10.0.0.4", "ip2": "10.0.0.5", "load": 80}' -H "Content-Type: application/json" -H "Accept: application/json"
+out: Added! ('of:0000000000000001', 'of:0000000000000008')
+
+
+madrid-cordoba
+curl -X POST "http://localhost:8000/flows/add" -d '{"ip1": "10.0.0.4", "ip2": "10.0.0.3", "load": 30}' -H "Content-Type: application/json" -H "Accept: application/json"
+out: Added! ('of:0000000000000001', 'of:0000000000000009', 'of:000000000000000a')
+
+3)
+madrid-sevilla
+curl -X POST "http://localhost:8000/flows/add" -d '{"ip1": "10.0.0.4", "ip2": "10.0.0.7", "load": 80}' -H "Content-Type: application/json" -H "Accept: application/json"
+out: Added! ('of:0000000000000001', 'of:0000000000000009')
+
+madrid-malaga
+curl -X POST "http://localhost:8000/flows/add" -d '{"ip1": "10.0.0.4", "ip2": "10.0.0.5", "load": 30}' -H "Content-Type: application/json" -H "Accept: application/json"
+out: Added! ('of:0000000000000001', 'of:0000000000000008')
+
+madrid-cordoba
+curl -X POST "http://localhost:8000/flows/add" -d '{"ip1": "10.0.0.4", "ip2": "10.0.0.3", "load": 30}' -H "Content-Type: application/json" -H "Accept: application/json"
+out: Added! ('of:0000000000000001', 'of:0000000000000008', 'of:0000000000000009', 'of:000000000000000a')

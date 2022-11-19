@@ -57,22 +57,23 @@ def flowsAdd():
             args = (flow[0:19], flow[19:])
             altGraph.remove_edge(*args)
         
-        nodes = find_path(altGraph, switches[data["ip1"]], switches[data["ip2"]]).nodes
+        nodes = find_path(altGraph, switches[data["ip1"] + "/32"], switches[data["ip2"] + "/32"]).nodes
 
         for i in range(len(nodes) - 1):
             linksLoad[nodes[i]+nodes[i+1]] = linksLoad[nodes[i]+nodes[i+1]] + data["load"] if nodes[i]+nodes[i+1] in linksLoad else data["load"]
             linksLoad[nodes[i + 1]+nodes[i]] = linksLoad[nodes[i+1]+nodes[i]] + data["load"] if nodes[i+1]+nodes[i] in linksLoad else data["load"]
 
         createDirectFlow(tuple(nodes))
-        return "Added!"
+        return "Added! " + str(tuple(nodes))
 
     createDirectFlow(tuple(nodes))
-    return "Added!"
+    return "Added!" + str(tuple(nodes))
 
 
 @delete("/flows/delete")
 def flowsDelete():
     r = requests.delete(onosUrl + "flows/application/org.onosproject.rest", auth=HTTPBasicAuth("onos","rocks"))
+    linksLoad = {}
     return str(r.status_code)
 
 
